@@ -1,0 +1,33 @@
+{% extends 'stars/base.html' %}
+
+{% block content %}
+
+{% if object_list %}
+<div class="row">
+    <div class="col-lg-10">
+
+        <h1>Post</h1>
+        <ul class="list-group list-group-flush">
+            {% for post in object_list %}
+            <li class="list-group-item"><a href="{% url 'stars:article-detail' post.pk %}">{{ post.title }}</a>
+                - {{ post.author.first_name }}{{ post.author.last_name }}
+                - {{ post.post_date }}
+
+                {% if user.is_authenticated and user.id == post.author.id %}
+                <small>
+                    - <a href="{% url 'stars:update_post' post.pk %}">(Edit)</a>
+                    <a href="{% url 'stars:delete_post' post.pk %}">(Delete)</a>
+                </small>
+                {% endif %}
+
+                <br>
+                {{ post.snippet }}
+                <!-- {{ post.body | safe | slice:":200" }} -->
+            </li>
+            {% endfor %}
+        </ul>
+
+    </div>
+</div>
+{% endif %}
+{% endblock %}

@@ -1,0 +1,29 @@
+{% extends 'stars/base.html' %}
+{% block title %}Login{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-8 col-lg-6">
+
+        <h1>Login...</h1>
+        <br><br>
+
+        <form method="POST">
+            {% csrf_token %}
+            <!-- {{ form.as_p }} -->
+            <div class="mb-3">
+                <input type="text" class="form-control" name="username" placeholder="Username">
+            </div>
+            <div class="mb-3">
+                <input type="password" class="form-control" name="password" placeholder="Password">
+            </div>
+            <button type="submit" class="btn btn-secondary">Login</button>
+        </form>
+
+        <br>
+        <p>Not Registered ? Sign Up <a href="{% url 'members:register' %}">Here</a></p>
+
+    </div>
+</div>
+
+{% endblock %}

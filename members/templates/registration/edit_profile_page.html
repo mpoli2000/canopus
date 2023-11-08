@@ -1,0 +1,23 @@
+{% extends 'stars/base.html' %}
+{% block title %}Edit Profile Page{% endblock %}
+{% block content %}
+
+{% if user.is_authenticated and user.id == profile.user.id %}
+
+<h1>Edit Profile Page...</h1>
+<br><br>
+
+<div class="" form-group>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-secondary">Update Profile Page</button>
+    </form>
+</div>
+
+{% else %}
+<p>You are nor allowed here</p>
+
+{% endif %}
+
+{% endblock %}
