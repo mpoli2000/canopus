@@ -26,8 +26,8 @@ SECRET_KEY = 'django-insecure-tfa4^-h8%2t$)up6#xumc5)yo3_rw^h0=&0ra!0ny-e$##oo+3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['127.0.0.1', 'canopus.ingenios.com.ar']
+CSRF_TRUSTED_ORIGINS = ['https://canopus.ingenios.com.ar']
 
 # Application definitions
 
